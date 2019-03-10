@@ -167,9 +167,7 @@ public class UpdatesActivity extends UpdatesListActivity {
                 return true;
             }
             case R.id.menu_show_changelog: {
-                Intent openUrl = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(Utils.getChangelogURL(this)));
-                startActivity(openUrl);
+                startActivity(new Intent(this, LocalChangelogActivity.class));
                 return true;
             }
         }
