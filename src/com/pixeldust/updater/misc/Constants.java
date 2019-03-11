@@ -33,6 +33,7 @@ public final class Constants {
     public static final String PROP_DEVICE = "ro.pixeldust.device";
     public static final String PROP_BUILD_VERSION = "ro.pixeldust.ota.version";
     public static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
+    public static final String PROP_DISABLE_UNCRYPT = "sys.ota.disable_uncrypt";
     public static final String OTA_URL = "https://sourceforge.net/projects/pixeldustproject/files/ota/%s/%s";
     public static final String DOWNLOAD_WEBPAGE_URL = "https://sourceforge.net/projects/pixeldustproject/files/changelogs/%s/%s";
     public static final String PREF_INSTALL_OLD_TIMESTAMP = "install_old_timestamp";
