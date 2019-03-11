@@ -34,19 +34,15 @@ import android.util.Log;
 import com.pixeldust.updater.R;
 import com.pixeldust.updater.UpdaterReceiver;
 import com.pixeldust.updater.UpdatesActivity;
-import com.pixeldust.updater.misc.BuildInfoUtils;
 import com.pixeldust.updater.misc.StringGenerator;
 import com.pixeldust.updater.misc.Utils;
 import com.pixeldust.updater.model.UpdateInfo;
 import com.pixeldust.updater.model.UpdateStatus;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.NumberFormat;
 
 public class UpdaterService extends Service {
-
-    private static final String TAG = "UpdaterService";
 
     public static final String ACTION_DOWNLOAD_CONTROL = "action_download_control";
     public static final String EXTRA_DOWNLOAD_ID = "extra_download_id";
@@ -57,12 +53,11 @@ public class UpdaterService extends Service {
     public static final String ACTION_INSTALL_SUSPEND = "action_install_suspend";
     public static final String ACTION_INSTALL_RESUME = "action_install_resume";
 
-    private static final String ONGOING_NOTIFICATION_CHANNEL =
-            "ongoing_notification_channel";
-
     public static final int DOWNLOAD_RESUME = 0;
     public static final int DOWNLOAD_PAUSE = 1;
-
+    private static final String TAG = "UpdaterService";
+    private static final String ONGOING_NOTIFICATION_CHANNEL =
+            "ongoing_notification_channel";
     private static final int NOTIFICATION_ID = 10;
 
     private final IBinder mBinder = new LocalBinder();
@@ -140,12 +135,6 @@ public class UpdaterService extends Service {
     public void onDestroy() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver);
         super.onDestroy();
-    }
-
-    public class LocalBinder extends Binder {
-        public UpdaterService getService() {
-            return UpdaterService.this;
-        }
     }
 
     @Override
@@ -475,12 +464,8 @@ public class UpdaterService extends Service {
     }
 
     private void setNotificationTitle(UpdateInfo update) {
-        String buildDate = StringGenerator.getDateLocalizedUTC(this,
-                DateFormat.MEDIUM, update.getTimestamp());
-        String buildInfo = getString(R.string.list_build_version_date,
-                BuildInfoUtils.getBuildVersion(), buildDate);
-        mNotificationStyle.setBigContentTitle(buildInfo);
-        mNotificationBuilder.setContentTitle(buildInfo);
+        mNotificationStyle.setBigContentTitle(update.getName());
+        mNotificationBuilder.setContentTitle(update.getName());
     }
 
     private PendingIntent getResumePendingIntent(String downloadId) {
@@ -503,6 +488,12 @@ public class UpdaterService extends Service {
         final Intent intent = new Intent(this, UpdaterReceiver.class);
         intent.setAction(UpdaterReceiver.ACTION_INSTALL_REBOOT);
         return PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    public class LocalBinder extends Binder {
+        public UpdaterService getService() {
+            return UpdaterService.this;
+        }
     }
 
     private PendingIntent getSuspendInstallationPendingIntent() {

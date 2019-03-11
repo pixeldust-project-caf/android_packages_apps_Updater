@@ -51,9 +51,6 @@ class ABUpdateInstaller {
     private final Context mContext;
     private String mDownloadId;
 
-    private UpdateEngine mUpdateEngine;
-    private boolean mBound;
-
     private boolean mFinalizing;
     private int mProgress;
 
@@ -118,6 +115,14 @@ class ABUpdateInstaller {
             }
         }
     };
+    private UpdateEngine mUpdateEngine;
+    private boolean mBound;
+
+    private ABUpdateInstaller(Context context, UpdaterController updaterController) {
+        mUpdaterController = updaterController;
+        mContext = context.getApplicationContext();
+        mUpdateEngine = new UpdateEngine();
+    }
 
     static synchronized boolean isInstallingUpdate(Context context) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
@@ -147,14 +152,8 @@ class ABUpdateInstaller {
         return TextUtils.equals(waitingId, downloadId);
     }
 
-    private ABUpdateInstaller(Context context, UpdaterController updaterController) {
-        mUpdaterController = updaterController;
-        mContext = context.getApplicationContext();
-        mUpdateEngine = new UpdateEngine();
-    }
-
     static synchronized ABUpdateInstaller getInstance(Context context,
-            UpdaterController updaterController) {
+                                                      UpdaterController updaterController) {
         if (sInstance == null) {
             sInstance = new ABUpdateInstaller(context, updaterController);
         }
@@ -188,7 +187,7 @@ class ABUpdateInstaller {
                  InputStreamReader isr = new InputStreamReader(is);
                  BufferedReader br = new BufferedReader(isr)) {
                 List<String> lines = new ArrayList<>();
-                for (String line; (line = br.readLine()) != null;) {
+                for (String line; (line = br.readLine()) != null; ) {
                     lines.add(line);
                 }
                 headerKeyValuePairs = new String[lines.size()];
