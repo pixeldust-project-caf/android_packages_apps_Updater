@@ -31,10 +31,10 @@ public class UpdateBase implements UpdateBaseInfo {
     private String mMaintainerUrl;
     private String mHash;
 
-    public UpdateBase() {
+    UpdateBase() {
     }
 
-    public UpdateBase(UpdateBaseInfo update) {
+    UpdateBase(UpdateBaseInfo update) {
         mName = update.getName();
         mDownloadUrl = update.getDownloadUrl();
         mDownloadId = update.getDownloadId();

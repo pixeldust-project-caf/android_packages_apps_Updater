@@ -15,6 +15,7 @@
  */
 package com.pixeldust.updater.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.UpdateEngine;
@@ -45,6 +46,7 @@ class ABUpdateInstaller {
     private static final String PREF_INSTALLING_AB_ID = "installing_ab_id";
     private static final String PREF_INSTALLING_SUSPENDED_AB_ID = "installing_suspended_ab_id";
 
+    @SuppressLint("StaticFieldLeak")
     private static ABUpdateInstaller sInstance = null;
 
     private final UpdaterController mUpdaterController;
@@ -154,10 +156,10 @@ class ABUpdateInstaller {
         return sInstance;
     }
 
-    public boolean install(String downloadId) {
+    void install(String downloadId) {
         if (isInstallingUpdate(mContext)) {
             Log.e(TAG, "Already installing an update");
-            return false;
+            return;
         }
 
         mDownloadId = downloadId;
@@ -168,7 +170,7 @@ class ABUpdateInstaller {
             mUpdaterController.getActualUpdate(downloadId)
                     .setStatus(UpdateStatus.INSTALLATION_FAILED);
             mUpdaterController.notifyUpdateChange(downloadId);
-            return false;
+            return;
         }
 
         long offset;
@@ -193,7 +195,7 @@ class ABUpdateInstaller {
             mUpdaterController.getActualUpdate(mDownloadId)
                     .setStatus(UpdateStatus.INSTALLATION_FAILED);
             mUpdaterController.notifyUpdateChange(mDownloadId);
-            return false;
+            return;
         }
 
         if (!mBound) {
@@ -203,7 +205,7 @@ class ABUpdateInstaller {
                 mUpdaterController.getActualUpdate(downloadId)
                         .setStatus(UpdateStatus.INSTALLATION_FAILED);
                 mUpdaterController.notifyUpdateChange(downloadId);
-                return false;
+                return;
             }
         }
 
@@ -221,17 +223,16 @@ class ABUpdateInstaller {
                 .putString(PREF_INSTALLING_AB_ID, mDownloadId)
                 .apply();
 
-        return true;
     }
 
-    public boolean reconnect() {
+    void reconnect() {
         if (!isInstallingUpdate(mContext)) {
             Log.e(TAG, "reconnect: Not installing any update");
-            return false;
+            return;
         }
 
         if (mBound) {
-            return true;
+            return;
         }
 
         mDownloadId = PreferenceManager.getDefaultSharedPreferences(mContext)
@@ -241,10 +242,8 @@ class ABUpdateInstaller {
         mBound = mUpdateEngine.bind(mUpdateEngineCallback);
         if (!mBound) {
             Log.e(TAG, "Could not bind");
-            return false;
         }
 
-        return true;
     }
 
     private void installationDone(boolean needsReboot) {
@@ -277,7 +276,7 @@ class ABUpdateInstaller {
         return true;
     }
 
-    public void setPerformanceMode(boolean enable) {
+    void setPerformanceMode(boolean enable) {
         mUpdateEngine.setPerformanceMode(enable);
     }
 
