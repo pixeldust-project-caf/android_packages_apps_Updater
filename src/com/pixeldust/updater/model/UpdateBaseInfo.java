@@ -39,4 +39,6 @@ public interface UpdateBaseInfo {
     String getMaintainer();
 
     String getMaintainerUrl();
+
+    String getHash();
 }
