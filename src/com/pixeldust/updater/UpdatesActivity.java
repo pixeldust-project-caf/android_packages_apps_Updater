@@ -363,16 +363,10 @@ public class UpdatesActivity extends UpdatesListActivity {
         Spinner autoCheckInterval =
                 view.findViewById(R.id.preferences_auto_updates_check_interval);
         Switch dataWarning = view.findViewById(R.id.preferences_mobile_data_warning);
-        Switch abPerfMode = view.findViewById(R.id.preferences_ab_perf_mode);
-
-        if (!Utils.isABDevice()) {
-            abPerfMode.setVisibility(View.GONE);
-        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         autoCheckInterval.setSelection(Utils.getUpdateCheckSetting(this));
         dataWarning.setChecked(prefs.getBoolean(Constants.PREF_MOBILE_DATA_WARNING, true));
-        abPerfMode.setChecked(prefs.getBoolean(Constants.PREF_AB_PERF_MODE, false));
 
         new AlertDialog.Builder(this)
                 .setTitle(R.string.menu_preferences)
@@ -383,8 +377,6 @@ public class UpdatesActivity extends UpdatesListActivity {
                                     autoCheckInterval.getSelectedItemPosition())
                             .putBoolean(Constants.PREF_MOBILE_DATA_WARNING,
                                     dataWarning.isChecked())
-                            .putBoolean(Constants.PREF_AB_PERF_MODE,
-                                    abPerfMode.isChecked())
                             .apply();
 
                     if (Utils.isUpdateCheckEnabled(this)) {
@@ -393,9 +385,6 @@ public class UpdatesActivity extends UpdatesListActivity {
                         UpdatesCheckReceiver.cancelRepeatingUpdatesCheck(this);
                         UpdatesCheckReceiver.cancelUpdatesCheck(this);
                     }
-
-                    boolean enableABPerfMode = abPerfMode.isChecked();
-                    mUpdaterService.getUpdaterController().setPerformanceMode(enableABPerfMode);
                 })
                 .show();
     }
