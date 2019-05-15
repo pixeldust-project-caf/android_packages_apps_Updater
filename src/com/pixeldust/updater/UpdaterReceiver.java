@@ -28,6 +28,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.preference.PreferenceManager;
 
 import com.pixeldust.updater.misc.Constants;
+import com.pixeldust.updater.misc.Utils;
 
 public class UpdaterReceiver extends BroadcastReceiver {
 
@@ -90,6 +91,8 @@ public class UpdaterReceiver extends BroadcastReceiver {
                 pref.edit().putBoolean(Constants.PREF_INSTALL_NOTIFIED, true).apply();
                 showUpdateFailedNotification(context);
             }
+
+            Utils.cleanupDownloadsDir(context);
         }
     }
 }
