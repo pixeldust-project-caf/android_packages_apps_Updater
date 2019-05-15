@@ -30,6 +30,7 @@ public final class Constants {
     public static final String PREF_INSTALL_PACKAGE_PATH = "install_package_path";
     public static final String PREF_INSTALL_AGAIN = "install_again";
     public static final String PREF_INSTALL_NOTIFIED = "install_notified";
+    public static final String DOWNLOAD_PATH = "/data/system_updates/";
     static final int AUTO_UPDATES_CHECK_INTERVAL_NEVER = 0;
     static final int AUTO_UPDATES_CHECK_INTERVAL_DAILY = 1;
     static final int AUTO_UPDATES_CHECK_INTERVAL_WEEKLY = 2;
@@ -40,6 +41,5 @@ public final class Constants {
     static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
     static final String OTA_URL = "https://raw.githubusercontent.com/pixeldust-project-caf/device_ota/%s/%s.json";
     static final String DOWNLOAD_WEBPAGE_URL = "https://sourceforge.net/projects/pixeldustproject/files/changelogs/%s/%s";
-    static final String DOWNLOAD_PATH = "/data/system_updates/";
     static final String EXPORT_PATH = "PixelDust-Updates/";
 }
