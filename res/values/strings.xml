@@ -15,7 +15,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App name -->
-    <string name="app_name">System updates</string>
+    <string name="app_name">Updates</string>
+    <string name="display_name">Updates</string>
 
     <!-- Notifications -->
     <string name="export_channel_title">Export completion</string>
