@@ -253,6 +253,9 @@ public class HttpURLConnectionClient implements DownloadClient {
                     responseCode = mClient.getResponseCode();
                 }
 
+                Log.d(TAG, "The server replied with code " + responseCode);
+                Log.d(TAG, "The requested URL is " + mClient.getURL().toString());
+
                 mCallback.onResponse(responseCode, mClient.getURL().toString(), new Headers());
 
                 if (mResume && isPartialContentCode(responseCode)) {
