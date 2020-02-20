@@ -122,4 +122,8 @@
     <string name="forum_info_title">Forum</string>
     <string name="forum_info_summary">View forum posts</string>
     <string name="error_open_url">Failed to open URL in browser</string>
+
+    <!-- Security patch level -->
+    <string name="security_patch_level">Security patch level: </string>
+
 </resources>
