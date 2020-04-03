@@ -77,7 +77,7 @@ public class Utils {
     }
 
     public static File getCachedUpdateList(Context context) {
-        return new File(context.getCacheDir(), "updates_v4.json");
+        return new File(context.getCacheDir(), "updates.json");
     }
 
     // This should really return an UpdateBaseInfo object, but currently this only
@@ -86,7 +86,7 @@ public class Utils {
         Update update = new Update();
         update.setTimestamp(object.getLong("datetime"));
         update.setName(object.getString("filename"));
-        update.setDownloadId(object.getString("id"));
+        update.setDownloadId(object.getString("filehash")); // Use md5 as download ID
         update.setFileSize(object.getLong("size"));
         update.setDownloadUrl(object.getString("url"));
         update.setVersion(object.getString("version"));
@@ -101,7 +101,7 @@ public class Utils {
     }
 
     public static boolean isCompatible(UpdateBaseInfo update) {
-        if (update.getVersion().compareTo(SystemProperties.get(Constants.PROP_BUILD_VERSION)) < 0) {
+        if (update.getVersion().compareTo(SystemProperties.get(Constants.PROP_VERSION_CODE)) < 0) {
             Log.d(TAG, update.getName() + " is older than current Android version");
             return false;
         }
@@ -115,7 +115,7 @@ public class Utils {
     public static boolean canInstall(UpdateBaseInfo update) {
         return (update.getTimestamp() > SystemProperties.getLong(Constants.PROP_BUILD_DATE, 0)) &&
                 update.getVersion().equalsIgnoreCase(
-                        SystemProperties.get(Constants.PROP_BUILD_VERSION));
+                        SystemProperties.get(Constants.PROP_VERSION_CODE));
     }
 
     public static UpdateInfo parseJson(File file, boolean compatibleOnly)
@@ -144,7 +144,7 @@ public class Utils {
     }
 
     public static String getServerURL() {
-        return String.format(Constants.OTA_URL, SystemProperties.get(Constants.PROP_DEVICE), SystemProperties.get(Constants.PROP_BUILD_VERSION));
+        return String.format(Constants.OTA_URL, SystemProperties.get(Constants.PROP_DEVICE), SystemProperties.get(Constants.PROP_VERSION_CODE));
     }
 
     public static String getDownloadWebpageUrl(String fileName) {
