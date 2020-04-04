@@ -22,7 +22,7 @@ public final class Constants {
     public static final String PREF_NEEDS_REBOOT_ID = "needs_reboot_id";
     public static final String PREF_MOBILE_DATA_WARNING = "pref_mobile_data_warning";
     public static final String UNCRYPT_FILE_EXT = ".uncrypt";
-    public static final String PROP_BUILD_DATE = "ro.pixeldust.ota.build_date_utc";
+    public static final String PROP_BUILD_DATE = "ro.pixeldust.ota.timestamp";
     public static final String PROP_RECOVERY_UPDATE = "persist.sys.recovery_update";
     public static final String PREF_INSTALL_OLD_TIMESTAMP = "install_old_timestamp";
     public static final String PREF_INSTALL_NEW_TIMESTAMP = "install_new_timestamp";
@@ -33,7 +33,7 @@ public final class Constants {
     public static final String DOWNLOAD_PATH = "/data/system_updates/";
     static final String PROP_AB_DEVICE = "ro.build.ab_update";
     static final String PROP_DEVICE = "ro.pixeldust.device";
-    static final String PROP_BUILD_VERSION = "ro.pixeldust.ota.version";
+    static final String PROP_AND_VERSION = "ro.pixeldust.ota.version";
     static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
     static final String OTA_URL = "https://raw.githubusercontent.com/PixelDust-Devices/device_ota/%s/%s.json";
     static final String DOWNLOAD_WEBPAGE_URL = "https://sourceforge.net/projects/pixeldustproject/files/changelogs/%s/%s";
