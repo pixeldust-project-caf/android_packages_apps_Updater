@@ -95,7 +95,7 @@
             android:drawableStart="@drawable/ic_menu_refresh"
             android:drawablePadding="5dp"
             android:drawableTint="?android:textColorPrimaryInverse"
-            android:fontFamily="@string/defaultFontFamilyMedium"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
             android:text="@string/check_for_update"
             android:textAlignment="center"
             android:textAllCaps="false"
