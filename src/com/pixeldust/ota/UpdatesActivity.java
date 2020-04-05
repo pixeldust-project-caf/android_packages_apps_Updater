@@ -95,7 +95,8 @@ public class UpdatesActivity extends UpdatesListActivity {
         setContentView(R.layout.activity_updates);
 
         TextView securityVersion = findViewById(R.id.security_version);
-        securityVersion.setText(R.string.security_patch_level + Utils.getSecurityPatchLevel());
+        securityVersion.setText(String.format(getResources()
+                .getString(R.string.security_patch_level), Utils.getSecurityPatchLevel()));
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         mAdapter = new UpdatesListAdapter(this);

@@ -25,10 +25,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Environment;
 import android.os.SystemProperties;
 import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -49,13 +51,13 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -149,12 +151,16 @@ public class Utils {
         return String.format(Constants.OTA_URL, SystemProperties.get(Constants.PROP_DEVICE), SystemProperties.get(Constants.PROP_VERSION_CODE));
     }
 
-    public static String getSecurityPatchLevel() throws ParseException {
-        String dateStr = String.valueOf(SystemProperties.get("ro.build.version.security_patch"));
-        DateFormat srcDf = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = srcDf.parse(dateStr);
-        DateFormat destDf = new SimpleDateFormat("MMM dd, yyyy");
-        dateStr = destDf.format(date);
+    public static String getSecurityPatchLevel() {
+        String dateStr = Build.VERSION.SECURITY_PATCH;
+        try {
+            SimpleDateFormat template = new SimpleDateFormat("yyyy-MM-dd");
+            Date patchDate = template.parse(dateStr);
+            String format = DateFormat.getBestDateTimePattern(Locale.getDefault(), "dMMMMyyyy");
+            dateStr = DateFormat.format(format, patchDate).toString();
+        } catch (ParseException e) {
+            Log.d("getSecurityPatchLevel", e.getMessage());
+        }
         return dateStr;
     }
 

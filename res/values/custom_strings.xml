@@ -124,6 +124,6 @@
     <string name="error_open_url">Failed to open URL in browser</string>
 
     <!-- Security patch level -->
-    <string name="security_patch_level">Security patch level: </string>
+    <string name="security_patch_level">Security patch level: <xliff:g id="patch" example="April 5, 2020">%1$s</xliff:g></string>
 
 </resources>
