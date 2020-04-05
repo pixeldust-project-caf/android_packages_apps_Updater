@@ -114,7 +114,7 @@
     <!-- Info section -->
     <string name="maintainer_info_title">Maintainer</string>
     <string name="donate_info_title">Donate</string>
-    <string name="donate_info_summary">Support the development</string>
+    <string name="donate_info_summary">If you like our work, support us with a donation</string>
     <string name="website_info_title">Website</string>
     <string name="website_info_summary">Visit our website</string>
     <string name="news_info_title">News</string>

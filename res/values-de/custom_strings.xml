@@ -43,8 +43,8 @@
     <!-- General -->
     <string name="update_found_notification">Systemaktualisierung verfügbar</string>
     <string name="snack_no_updates_found">Keine neuen Updates gefunden</string>
-    <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfen Sie die Internetverbindung und versuchen Sie es später erneut.</string>
-    <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfen sie die Internetverbindung und versuchen Sie es später erneut.</string>
+    <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfe die Internetverbindung und versuche es später erneut.</string>
+    <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfe die Internetverbindung und versuche es später erneut.</string>
     <string name="snack_download_verification_failed">Die Update-Überprüfung ist fehlgeschlagen.</string>
     <string name="snack_download_verified">Herunterladen abgeschlossen.</string>
     <string name="snack_update_not_installable">Dieses Update kann nicht auf die bestehende Installation angewendet werden.</string>
@@ -69,8 +69,8 @@
     <string name="details_button">Details anzeigen</string>
     <!-- Installation -->
     <string name="apply_update_dialog_title">Update installieren</string>
-    <string name="apply_update_dialog_message">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Sie <xliff:g id="ok">%2$s</xliff:g> drücken, wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
-    <string name="apply_update_dialog_message_ab">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Sie <xliff:g id="ok">%2$s drücken</xliff:g>, beginnt das Gerät im Hintergrund mit der Installation\n\nSobald diese abgeschlossen ist, werden Sie zum Neustart aufgefordert.</string>
+    <string name="apply_update_dialog_message">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Du <xliff:g id="ok">%2$s</xliff:g> drückst, wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
+    <string name="apply_update_dialog_message_ab">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Du <xliff:g id="ok">%2$s drückst</xliff:g>, beginnt das Gerät im Hintergrund mit der Installation\n\nSobald diese abgeschlossen ist, wirst Du zum Neustart aufgefordert.</string>
     <string name="cancel_installation_dialog_message">Installation abbrechen?</string>
     <string name="installing_update">Update-Paket wird installiert</string>
     <string name="installing_update_error">Installationsfehler</string>
@@ -100,16 +100,16 @@
     </plurals>
     <!-- Mobile data warning -->
     <string name="update_on_mobile_data_title">Warnung</string>
-    <string name="update_on_mobile_data_message">Sie sind dabei ein Software-Update über das Mobilfunknetz herunterzuladen, was zu einem hohen Datenverbrauch führen kann. Möchten Sie fortfahren?</string>
+    <string name="update_on_mobile_data_message">Ein Software-Update über das Mobilfunknetz wird zu einem hohen Datenverbrauch führen. Möchtest Du wirklich fortfahren?</string>
     <string name="checkbox_mobile_data_warning">Nicht mehr anzeigen</string>
     <!-- Info section -->
     <string name="maintainer_info_title">Betreuer</string>
     <string name="donate_info_title">Spenden</string>
     <string name="donate_info_summary">Unterstütze die Entwicklung</string>
     <string name="website_info_title">Webseite</string>
-    <string name="website_info_summary">Besuchen Sie unsere Webseite</string>
+    <string name="website_info_summary">Besuche unsere Webseite</string>
     <string name="news_info_title">Neuigkeiten</string>
-    <string name="news_info_summary">Bleiben Sie informiert über Updates und andere Neuigkeiten</string>
+    <string name="news_info_summary">Bleib informiert über Updates und andere Neuigkeiten</string>
     <string name="forum_info_title">Forum</string>
     <string name="forum_info_summary">Zeige Forenbeiträge</string>
     <string name="error_open_url">Öffnen der URL im Browser fehlgeschlagen</string>

@@ -40,9 +40,9 @@
     <string name="toast_download_url_copied">URL wurde kopiert</string>
     <!-- General -->
     <string name="update_found_notification">Neues Update verfügbar</string>
-    <string name="snack_no_updates_found">Keine neuen Updates gefunden</string>
-    <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfen Sie die Internetverbindung und versuchen Sie es später erneut.</string>
-    <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfen sie die Internetverbindung und versuchen Sie es später erneut.</string>
+    <string name="snack_no_updates_found">Kein neues Update gefunden</string>
+    <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfe die Internetverbindung und versuche es später erneut.</string>
+    <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfe die Internetverbindung und versuche es später erneut.</string>
     <string name="snack_download_verification_failed">Die Update-Überprüfung ist fehlgeschlagen.</string>
     <string name="snack_download_verified">Herunterladen abgeschlossen.</string>
     <string name="snack_update_not_installable">Dieses Update kann nicht auf die bestehende Installation angewendet werden.</string>
@@ -50,7 +50,7 @@
     <string name="list_download_progress_new"><xliff:g example="12.2" id="filesize_without_unit">%1$s</xliff:g> von <xliff:g example="310 MB" id="filesize_without_unit">%2$s</xliff:g> • <xliff:g example="56" id="percentage">%3$s</xliff:g></string>
     <string name="list_download_progress_eta_new"><xliff:g example="12.2" id="filesize_without_unit">%1$s</xliff:g> von <xliff:g example="310 MB" id="filesize_without_unit">%2$s</xliff:g> (<xliff:g example="3 minutes left" id="eta">%3$s</xliff:g>) • <xliff:g example="56" id="percentage">%4$s</xliff:g></string>
     <string name="list_verifying_update">Update wird geprüft</string>
-    <string name="list_no_updates">Keine neuen Updates gefunden. Um manuell nach neuen Updates zu suchen, verwenden Sie die Schaltfläche \"Aktualisieren\".</string>
+    <string name="list_no_updates">Kein neues Update gefunden. Um erneut zu suchen, verwende die Schaltfläche unten.</string>
     <string name="blocked_update_dialog_title">Update blockiert</string>
     <!-- Actions -->
     <string name="action_download">Herunterladen</string>
@@ -66,8 +66,8 @@
     <string name="reboot">Neustart</string>
     <!-- Installation -->
     <string name="apply_update_dialog_title">Update installieren</string>
-    <string name="apply_update_dialog_message">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Sie <xliff:g id="ok">%2$s</xliff:g> drücken, wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
-    <string name="apply_update_dialog_message_ab">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Sie <xliff:g id="ok">%2$s drücken</xliff:g>, beginnt das Gerät im Hintergrund mit der Installation\n\nSobald diese abgeschlossen ist, werden Sie zum Neustart aufgefordert.</string>
+    <string name="apply_update_dialog_message">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Du <xliff:g id="ok">%2$s</xliff:g> drückst, wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, andernfalls muss das Update manuell installiert werden.</string>
+    <string name="apply_update_dialog_message_ab">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Du <xliff:g id="ok">%2$s drückst</xliff:g>, beginnt das Gerät im Hintergrund mit der Installation\n\nSobald diese abgeschlossen ist, wirst Du zum Neustart aufgefordert.</string>
     <string name="cancel_installation_dialog_message">Installation abbrechen?</string>
     <string name="installing_update">Update-Paket wird installiert</string>
     <string name="installing_update_error">Installationsfehler</string>
@@ -76,7 +76,7 @@
     <string name="preparing_ota_first_boot">Erster Start wird vorbereitet</string>
     <string name="dialog_prepare_zip_message">Update wird vorbereitet</string>
     <string name="dialog_battery_low_title">Niedriger Akkustand</string>
-    <string name="dialog_battery_low_message_pct">Ihr Akkustand ist zu niedrig. Es werden mindestens <xliff:g id="percent_discharging">%1$d</xliff:g>%% Restkapazität (oder <xliff:g id="percent_charging">%2$d</xliff:g>%% mit angeschlossenem Ladegerät) benötigt, um fortzufahren.</string>
+    <string name="dialog_battery_low_message_pct">Der Akkustand ist zu niedrig. Es werden mindestens <xliff:g id="percent_discharging">%1$d</xliff:g>%% Restkapazität (oder <xliff:g id="percent_charging">%2$d</xliff:g>%% mit angeschlossenem Ladegerät) benötigt, um fortzufahren.</string>
     <!-- Export update -->
     <string name="dialog_export_title">Update wird exportiert</string>
     <string name="notification_export_success">Update wurde exportiert</string>
@@ -97,16 +97,16 @@
     </plurals>
     <!-- Mobile data warning -->
     <string name="update_on_mobile_data_title">Warnung</string>
-    <string name="update_on_mobile_data_message">Sie sind dabei ein Software-Update über das Mobilfunknetz herunterzuladen, was zu einem hohen Datenverbrauch führen kann. Möchten Sie fortfahren?</string>
+    <string name="update_on_mobile_data_message">Ein Software-Update über das Mobilfunknetz wird zu einem hohen Datenverbrauch führen. Möchtest Du wirklich fortfahren?</string>
     <string name="checkbox_mobile_data_warning">Nicht mehr anzeigen</string>
     <!-- Info section -->
-    <string name="maintainer_info_title">Betreuer</string>
-    <string name="donate_info_title">Spenden</string>
-    <string name="donate_info_summary">Unterstütze die Entwicklung</string>
+    <string name="maintainer_info_title">Maintainer</string>
+    <string name="donate_info_title">Spende was</string>
+    <string name="donate_info_summary">Gefällt dir unsere ROM, dann unterstütze uns</string>
     <string name="website_info_title">Webseite</string>
-    <string name="website_info_summary">Besuchen Sie unsere Webseite</string>
+    <string name="website_info_summary">Besuch unsere Webseite</string>
     <string name="news_info_title">Neuigkeiten</string>
-    <string name="news_info_summary">Bleiben Sie informiert über Updates und andere Neuigkeiten</string>
+    <string name="news_info_summary">Bleib immer auf dem Laufenden</string>
     <string name="forum_info_title">Forum</string>
     <string name="forum_info_summary">Zeige Forenbeiträge</string>
     <string name="error_open_url">Öffnen der URL im Browser fehlgeschlagen</string>
