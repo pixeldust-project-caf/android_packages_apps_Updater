@@ -31,7 +31,6 @@
     <string name="update_failed_notification">અપડેટ નિષ્ફળ થયું</string>
     <!-- Menu -->
     <string name="menu_delete_update">કાઢી નાખો</string>
-    <string name="menu_copy_url">URL ને કોપિ કરો</string>
     <string name="changelog_loading">લોડ કરી રહ્યું છે…</string>
     <!-- General -->
     <string name="snack_no_updates_found">કોઇ નવા અપડેટો મળ્યા નહીં</string>
@@ -60,4 +59,6 @@
     <string name="forum_info_title">ફોરમ</string>
     <string name="forum_info_summary">ફોરમ પોસ્ટ્સ જુઓ</string>
     <string name="error_open_url">બ્રાઉઝરમાં URL ખોલવામાં નિષ્ફળ</string>
+    <!-- Security patch -->
+    <string name="setting_security_patch_level_title">સુરક્ષા અપડેટ</string>
 </resources>
