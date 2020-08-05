@@ -51,6 +51,7 @@ import com.pixeldust.ota.download.DownloadClient;
 import com.pixeldust.ota.misc.Constants;
 import com.pixeldust.ota.misc.Utils;
 import com.pixeldust.ota.model.UpdateInfo;
+import com.pixeldust.ota.model.UpdateStatus;
 
 import java.io.File;
 import java.io.IOException;
@@ -116,8 +117,8 @@ public class UpdatesActivity extends UpdatesListActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (UpdaterController.ACTION_UPDATE_STATUS.equals(intent.getAction())) {
-                    String downloadId = intent.getStringExtra(UpdaterController.EXTRA_DOWNLOAD_ID);
-                    handleDownloadStatusChange(downloadId);
+                    UpdateStatus status = (UpdateStatus) intent.getSerializableExtra(UpdaterController.EXTRA_STATUS);
+                    handleDownloadStatusChange(status);
                     mAdapter.notifyDataSetChanged();
                 } else if (UpdaterController.ACTION_NETWORK_UNAVAILABLE.equals(intent.getAction())) {
                     showSnackbar(R.string.snack_download_failed, Snackbar.LENGTH_LONG);
@@ -133,10 +134,10 @@ public class UpdatesActivity extends UpdatesListActivity {
                 }else if (ExportUpdateService.ACTION_EXPORT_STATUS.equals(intent.getAction())){
                     int status = intent.getIntExtra(ExportUpdateService.EXTRA_EXPORT_STATUS, -1);
                     handleExportStatusChanged(status);
-                }else if (UpdaterController.ACTION_INCREMENTAL_PREF_CHANGING.equals(intent.getAction())) {
+                }else if (UpdaterController.ACTION_UPDATE_CLEANUP_IN_PROGRESS.equals(intent.getAction())) {
                     hideUpdates();
                     refreshAnimationStart();
-                }else if (UpdaterController.ACTION_INCREMENTAL_PREF_CHANGED.equals(intent.getAction())) {
+                }else if (UpdaterController.ACTION_UPDATE_CLEANUP_DONE.equals(intent.getAction())) {
                     cleanupUpdates();
                 }
             }
@@ -198,8 +199,8 @@ public class UpdatesActivity extends UpdatesListActivity {
         intentFilter.addAction(UpdaterController.ACTION_INSTALL_PROGRESS);
         intentFilter.addAction(UpdaterController.ACTION_UPDATE_REMOVED);
         intentFilter.addAction(UpdaterController.ACTION_NETWORK_UNAVAILABLE);
-        intentFilter.addAction(UpdaterController.ACTION_INCREMENTAL_PREF_CHANGING);
-        intentFilter.addAction(UpdaterController.ACTION_INCREMENTAL_PREF_CHANGED);
+        intentFilter.addAction(UpdaterController.ACTION_UPDATE_CLEANUP_IN_PROGRESS);
+        intentFilter.addAction(UpdaterController.ACTION_UPDATE_CLEANUP_DONE);
         intentFilter.addAction(ExportUpdateService.ACTION_EXPORT_STATUS);
         LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver, intentFilter);
     }
@@ -373,10 +374,9 @@ public class UpdatesActivity extends UpdatesListActivity {
         mRefreshButton.setEnabled(true);
     }
 
-    private void handleDownloadStatusChange(String downloadId) {
-        UpdateInfo update = mUpdaterService.getUpdaterController().getUpdate(downloadId);
-        switch (update.getStatus()) {
-            case PAUSED_ERROR:
+    private void handleDownloadStatusChange(UpdateStatus status) {
+        switch (status) {
+            case DOWNLOAD_ERROR:
                 showSnackbar(R.string.snack_download_failed, Snackbar.LENGTH_LONG);
                 break;
             case VERIFICATION_FAILED:
@@ -419,6 +419,7 @@ public class UpdatesActivity extends UpdatesListActivity {
             showSnackbar(R.string.installing_update_error, Snackbar.LENGTH_LONG);
         }
     }
+
     private void cleanupUpdates(){
         mAdapter.setData(new ArrayList<>());
         mAdapter.notifyDataSetChanged();

@@ -35,7 +35,6 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.pixeldust.ota.UpdatesDbHelper;
 import com.pixeldust.ota.controller.UpdaterService;
 import com.pixeldust.ota.model.Update;
 import com.pixeldust.ota.model.UpdateBaseInfo;
@@ -99,6 +98,7 @@ public class Utils {
         update.setHash(object.getString("filehash"));
         update.setMaintainer(object.isNull("maintainer") ? "" : object.getString("maintainer"));
         update.setMaintainerUrl(object.isNull("maintainer_url") ? "" : object.getString("maintainer_url"));
+        update.setIsIncremental(object.getBoolean("is_incremental"));
         update.setDonateUrl(object.isNull("donate_url") ? "" : object.getString("donate_url"));
         update.setForumUrl(object.isNull("forum_url") ? "" : object.getString("forum_url"));
         update.setWebsiteUrl(object.isNull("website_url") ? "" : object.getString("website_url"));
@@ -270,20 +270,8 @@ public class Utils {
         if (files == null) {
             return;
         }
-
-        // Ideally the database is empty when we get here
-        UpdatesDbHelper dbHelper = new UpdatesDbHelper(context);
-        List<String> knownPaths = new ArrayList<>();
-        for (UpdateInfo update : dbHelper.getUpdates()) {
-            if (isCompatible(update)) {
-                knownPaths.add(update.getFile().getAbsolutePath());
-            }
-        }
         for (File file : files) {
-            if (!knownPaths.contains(file.getAbsolutePath())) {
-                Log.d(TAG, "Deleting " + file.getAbsolutePath());
-                file.delete();
-            }
+            Log.d(TAG, "Deleting " + file.getAbsolutePath());
         }
     }
 
