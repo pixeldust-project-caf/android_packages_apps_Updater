@@ -28,14 +28,17 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
-import org.json.JSONException;
+import com.pixeldust.ota.controller.ABUpdateInstaller;
 import com.pixeldust.ota.download.DownloadClient;
 import com.pixeldust.ota.misc.Utils;
+import com.pixeldust.ota.model.UpdateStatus;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
+
+import org.json.JSONException;
 
 public class UpdatesCheckReceiver extends BroadcastReceiver {
 
@@ -46,8 +49,12 @@ public class UpdatesCheckReceiver extends BroadcastReceiver {
 
     private static final String NEW_UPDATES_NOTIFICATION_CHANNEL =
             "new_updates_notification_channel";
+    public static final int NOTIFICATION_ID = 20;
 
     private static void showNotification(Context context) {
+        if (ABUpdateInstaller.needsReboot() || Utils.getPersistentStatus(context) != UpdateStatus.Persistent.UNKNOWN) {
+            return;
+        }
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel notificationChannel = new NotificationChannel(
@@ -64,7 +71,7 @@ public class UpdatesCheckReceiver extends BroadcastReceiver {
         notificationBuilder.setContentTitle(context.getString(R.string.update_found_notification));
         notificationBuilder.setAutoCancel(true);
         notificationManager.createNotificationChannel(notificationChannel);
-        notificationManager.notify(0, notificationBuilder.build());
+        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
     }
 
     private static PendingIntent getRepeatingUpdatesCheckIntent(Context context) {
