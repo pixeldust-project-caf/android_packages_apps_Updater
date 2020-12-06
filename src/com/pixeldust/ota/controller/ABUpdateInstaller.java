@@ -258,7 +258,12 @@ public class ABUpdateInstaller {
                 .getString(Constants.PREF_INSTALLING_AB_ID, null);
 
         // We will get a status notification as soon as we are connected
-        mBound = mUpdateEngine.bind(mUpdateEngineCallback);
+        try{
+            mBound = mUpdateEngine.bind(mUpdateEngineCallback);
+        }catch (NullPointerException e){
+            Log.e(TAG, "Failed to bind", e);
+            mBound = false;
+        }
         if (!mBound) {
             Log.e(TAG, "Could not bind");
         }
