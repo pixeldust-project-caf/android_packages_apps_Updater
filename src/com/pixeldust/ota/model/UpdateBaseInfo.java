@@ -42,8 +42,4 @@ public interface UpdateBaseInfo {
     String getMaintainerUrl();
 
     String getHash();
-
-    boolean getIsIncremental();
-
-    boolean getHasIncremental();
 }

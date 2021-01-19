@@ -161,11 +161,6 @@ public class UpdatesActivity extends UpdatesListActivity {
                 }else if (ExportUpdateService.ACTION_EXPORT_STATUS.equals(intent.getAction())){
                     int status = intent.getIntExtra(ExportUpdateService.EXTRA_EXPORT_STATUS, -1);
                     handleExportStatusChanged(status);
-                }else if (UpdaterController.ACTION_UPDATE_CLEANUP_IN_PROGRESS.equals(intent.getAction())) {
-                    hideUpdates();
-                    refreshAnimationStart();
-                }else if (UpdaterController.ACTION_UPDATE_CLEANUP_DONE.equals(intent.getAction())) {
-                    cleanupUpdates();
                 } else if (ABUpdateInstaller.ACTION_RESTART_PENDING.equals(intent.getAction())) {
                     hideUpdates();
                     showRestartPendingDialog();
@@ -251,8 +246,6 @@ public class UpdatesActivity extends UpdatesListActivity {
         intentFilter.addAction(UpdaterController.ACTION_INSTALL_PROGRESS);
         intentFilter.addAction(UpdaterController.ACTION_UPDATE_REMOVED);
         intentFilter.addAction(UpdaterController.ACTION_NETWORK_UNAVAILABLE);
-        intentFilter.addAction(UpdaterController.ACTION_UPDATE_CLEANUP_IN_PROGRESS);
-        intentFilter.addAction(UpdaterController.ACTION_UPDATE_CLEANUP_DONE);
         intentFilter.addAction(ExportUpdateService.ACTION_EXPORT_STATUS);
         intentFilter.addAction(ABUpdateInstaller.ACTION_RESTART_PENDING);
         intentFilter.addAction(ACTION_START_DOWNLOAD_WITH_WARNING);
@@ -400,7 +393,6 @@ public class UpdatesActivity extends UpdatesListActivity {
                     .setUrl(url)
                     .setDestination(jsonFileTmp)
                     .setDownloadCallback(callback)
-                    .setUseIncremental(Utils.shouldUseIncremental(this))
                     .build();
         } catch (IOException exception) {
             Log.e(TAG, "Could not build download client");
@@ -497,20 +489,7 @@ public class UpdatesActivity extends UpdatesListActivity {
     }
 
     private void handleABInstallationFailed() {
-        if (Utils.getCurrentUpdateIsIncremental(this) && Utils.shouldUseIncremental(this)) {
-            new AlertDialog.Builder(this, R.style.AppTheme_AlertDialogStyle)
-                    .setTitle(R.string.installing_update_error)
-                    .setMessage(R.string.installing_update_ab_disable_incremental_summary)
-                    .setPositiveButton(R.string.action_download,
-                            (dialog, which) -> {
-                                UpdaterController controller = mUpdaterService.getUpdaterController();
-                                controller.setShouldUseIncremental(false);
-                            })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
-        } else {
-            showSnackbar(R.string.installing_update_error, Snackbar.LENGTH_LONG);
-        }
+        showSnackbar(R.string.installing_update_error, Snackbar.LENGTH_LONG);
     }
 
     private void startDownloadWithWarning() {
@@ -560,11 +539,5 @@ public class UpdatesActivity extends UpdatesListActivity {
         intent.putExtra(ExportUpdateService.EXTRA_SOURCE_FILE, mExportUpdateFile);
         intent.putExtra(ExportUpdateService.EXTRA_DEST_FILE, dest);
         startService(intent);
-    }
-
-    private void cleanupUpdates() {
-        mAdapter.setDownloadId(null);
-        mAdapter.notifyDataSetChanged();
-        downloadUpdatesList(false);
     }
 }
