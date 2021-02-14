@@ -40,7 +40,6 @@ import com.pixeldust.ota.model.Update;
 import com.pixeldust.ota.model.UpdateInfo;
 import com.pixeldust.ota.model.UpdateStatus;
 
-import java.io.IOException;
 import java.text.NumberFormat;
 
 public class UpdaterService extends Service {
@@ -176,21 +175,14 @@ public class UpdaterService extends Service {
             if (Utils.getPersistentStatus(this) != UpdateStatus.Persistent.VERIFIED) {
                 throw new IllegalArgumentException(update.getDownloadId() + " is not verified");
             }
-            try {
-                if (Utils.isABUpdate(update.getFile())) {
-                    ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                            mUpdaterController);
-                    installer.install();
-                } else {
-                    UpdateInstaller installer = UpdateInstaller.getInstance(this,
-                            mUpdaterController);
-                    installer.install();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "Could not install update", e);
-                mUpdaterController.getCurrentUpdate()
-                        .setStatus(UpdateStatus.INSTALLATION_FAILED);
-                mUpdaterController.notifyUpdateChange(UpdateStatus.INSTALLATION_FAILED);
+            if (Utils.isABDevice()) {
+                ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
+                        mUpdaterController);
+                installer.install();
+            } else {
+                UpdateInstaller installer = UpdateInstaller.getInstance(this,
+                        mUpdaterController);
+                installer.install();
             }
         }
         return ABUpdateInstaller.isInstallingUpdate(this) ? START_STICKY : START_NOT_STICKY;
