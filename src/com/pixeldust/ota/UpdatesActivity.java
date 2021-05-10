@@ -53,7 +53,6 @@ import com.pixeldust.ota.controller.UpdaterController;
 import com.pixeldust.ota.controller.UpdaterService;
 import com.pixeldust.ota.download.DownloadClient;
 import com.pixeldust.ota.misc.Constants;
-import com.pixeldust.ota.misc.PermissionsUtils;
 import com.pixeldust.ota.misc.Utils;
 import com.pixeldust.ota.model.UpdateInfo;
 import com.pixeldust.ota.model.UpdateStatus;
@@ -522,11 +521,6 @@ public class UpdatesActivity extends UpdatesListActivity {
     }
 
     private void exportUpdate() {
-        boolean hasPermission = PermissionsUtils.checkAndRequestStoragePermission(
-                this, ExportUpdateService.EXPORT_STATUS_PERMISSION_REQUEST_CODE);
-        if (!hasPermission) {
-            return;
-        }
         File dest = new File(Utils.getExportPath(), mExportUpdateName);
         Intent intent = new Intent(this, ExportUpdateService.class);
         intent.setAction(ExportUpdateService.ACTION_START_EXPORTING);
