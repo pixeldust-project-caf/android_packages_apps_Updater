@@ -30,7 +30,7 @@ public final class Constants {
     static final String PROP_DEVICE = "ro.pixeldust.device";
     static final String PROP_AND_VERSION = "ro.pixeldust.ota.version";
     static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
-    static final String OTA_URL = "https://raw.githubusercontent.com/PixelDust-Devices/device_ota/%s/%s_eleven.json";
-    static final String DOWNLOAD_WEBPAGE_URL = "https://sourceforge.net/projects/pixeldustproject/files/changelogs/%s/%s";
+    static final String OTA_URL = "https://raw.githubusercontent.com/PixelDust-Devices/device_ota/%s/%s_twelve.json";
+    static final String DOWNLOAD_WEBPAGE_URL = "https://pixeldust-project.com/download/%s/%s";
     static final String EXPORT_PATH = "PixelDust-Updates/";
 }
