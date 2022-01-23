@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Systemupdate</string>
+    <string name="app_name">Systemupdates</string>
     <string name="export_channel_title">Export abgeschlossen</string>
     <string name="new_updates_channel_title">Neue Updates</string>
     <string name="ongoing_channel_title">Laufende Downloads</string>
@@ -30,12 +30,12 @@
     <string name="update_failed_notification">Update fehlgeschlagen</string>
     <string name="check_for_update">Nach Update suchen</string>
     <string name="menu_delete_update">Löschen</string>
-    <string name="menu_export_update">Update exportieren</string>
+    <string name="menu_export_update">Update verschieben</string>
     <string name="menu_show_changelog">Änderungen in der aktuellen Version</string>
     <string name="changelog_loading">Wird geladen…</string>
     <string name="menu_download_full_package">Vollständiges Paket herunterladen</string>
     <string name="menu_download_incremental_package">Inkrementelles Paket herunterladen</string>
-    <string name="update_found_notification">Systemaktualisierung verfügbar</string>
+    <string name="update_found_notification">Systemupdate verfügbar</string>
     <string name="snack_no_updates_found">Keine neuen Updates gefunden</string>
     <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfe die Internetverbindung und versuche es später erneut.</string>
     <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfe die Internetverbindung und versuche es später erneut.</string>
@@ -58,7 +58,7 @@
     <string name="resume_button">Fortsetzen</string>
     <string name="reboot">Neustart</string>
     <string name="reboot_needed_dialog_title">Neustart erforderlich</string>
-    <string name="reboot_needed_dialog_summary">Um die Installation des Updates abzuschließen, muss Ihr Gerät neu gestartet werden. Möchtest du es jetzt neu starten?</string>
+    <string name="reboot_needed_dialog_summary">Um die Installation des Updates abzuschließen, muss dein Gerät neu gestartet werden. Möchtest du es jetzt neu starten?</string>
     <string name="details_button">Details anzeigen</string>
     <string name="apply_update_dialog_title">Update installieren</string>
     <string name="apply_update_dialog_message">Bereit zum Update auf <xliff:g id="update_name">%1$s</xliff:g>\n\nWenn Du <xliff:g id="ok">%2$s</xliff:g> drückst, wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
@@ -66,15 +66,15 @@
     <string name="installing_update">Update-Paket wird installiert</string>
     <string name="installing_update_error">Installationsfehler</string>
     <string name="installing_update_finished">Update installiert</string>
-    <string name="installing_update_ab_disable_incremental_summary">Die inkrementelle Installation ist fehlgeschlagen, da Ihre Systempartition durch die Installation eines Add-Ons oder eines benutzerdefinierten Kernels geändert wurde. Möchten Sie das vollständige Paket herunterladen und erneut versuchen?</string>
+    <string name="installing_update_ab_disable_incremental_summary">Die inkrementelle Installation ist fehlgeschlagen, da die Systempartition durch die Installation eines Add-Ons oder eines benutzerdefinierten Kernels geändert wurde. Möchtest Du das vollständige Paket herunterladen und erneut versuchen?</string>
     <string name="finalizing_package">Die Paketinstallation wird abgeschlossen</string>
     <string name="dialog_prepare_zip_message">Update wird vorbereitet</string>
     <string name="dialog_battery_low_title">Niedriger Akkustand</string>
     <string name="dialog_battery_low_message_pct">Der Akkustand ist zu niedrig. Es werden mindestens <xliff:g id="percent_discharging">%1$d</xliff:g>%% Restkapazität (oder <xliff:g id="percent_charging">%2$d</xliff:g>%% mit angeschlossenem Ladegerät) benötigt, um fortzufahren.</string>
-    <string name="dialog_export_title">Update auf den internen Speicher exportieren</string>
-    <string name="notification_export_success">Update wurde auf den internen Speicher exportiert</string>
-    <string name="notification_export_fail">Das Update konnte nicht auf den internen Speicher exportiert werden</string>
-    <string name="toast_already_exporting">Ein Update wird bereits exportiert</string>
+    <string name="dialog_export_title">Update in den internen Speicher verschieben</string>
+    <string name="notification_export_success">Update wurde in den internen Speicher verschoben</string>
+    <string name="notification_export_fail">Das Update konnte nicht in den internen Speicher verschoben werden</string>
+    <string name="toast_already_exporting">Ein Update wird bereits verschoben</string>
     <plurals name="eta_seconds">
         <item quantity="one">noch 1 Sekunde verbleibend</item>
         <item quantity="other">noch <xliff:g id="count">%d</xliff:g> Sekunden</item>
@@ -88,13 +88,13 @@
         <item quantity="other">noch <xliff:g id="count">%d</xliff:g> Stunden verbleibend</item>
     </plurals>
     <string name="update_on_mobile_data_title">Warnung</string>
-    <string name="update_on_mobile_data_message">Ein Software-Update über das Mobilfunknetz wird zu einem hohen Datenverbrauch führen. Möchtest Du wirklich fortfahren?</string>
+    <string name="update_on_mobile_data_message">Ein Systemupdate über das Mobilfunknetz wird zu einem hohen Datenverbrauch führen. Möchtest Du wirklich fortfahren?</string>
     <string name="checkbox_mobile_data_warning">Nicht mehr anzeigen</string>
     <string name="maintainer_info_title">Betreuer</string>
-    <string name="donate_info_title">Spenden</string>
-    <string name="donate_info_summary">Unterstütze die Entwicklung</string>
-    <string name="website_info_title">Webseite</string>
-    <string name="website_info_summary">Besuche unsere Webseite</string>
+    <string name="donate_info_title">Spende was</string>
+    <string name="donate_info_summary">Gefällt dir unsere ROM, dann unterstütze uns</string>
+    <string name="website_info_title">Website</string>
+    <string name="website_info_summary">Besuche unsere Website</string>
     <string name="news_info_title">Neuigkeiten</string>
     <string name="news_info_summary">Bleib informiert über Updates und andere Neuigkeiten</string>
     <string name="forum_info_title">Forum</string>
