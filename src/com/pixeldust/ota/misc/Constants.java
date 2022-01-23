@@ -28,6 +28,7 @@ public final class Constants {
     public static final String DOWNLOAD_PATH = "/data/system_updates/";
     static final String PROP_AB_DEVICE = "ro.build.ab_update";
     static final String PROP_DEVICE = "ro.pixeldust.device";
+    static final String PROP_BRAND = "ro.pixeldust.product.brand";
     static final String PROP_AND_VERSION = "ro.pixeldust.ota.version";
     static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
     static final String OTA_URL = "https://raw.githubusercontent.com/PixelDust-Devices/device_ota/%s/%s_twelve.json";

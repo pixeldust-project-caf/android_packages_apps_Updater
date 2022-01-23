@@ -161,8 +161,8 @@ public class Utils {
         return dateStr;
     }
 
-    public static String getDownloadWebpageUrl(String fileName) {
-        return String.format(Constants.DOWNLOAD_WEBPAGE_URL, SystemProperties.get(Constants.PROP_DEVICE), fileName);
+    public static String getDownloadWebpageUrl() {
+        return String.format(Constants.DOWNLOAD_WEBPAGE_URL, SystemProperties.get(Constants.PROP_BRAND), SystemProperties.get(Constants.PROP_DEVICE));
     }
 
     public static void triggerUpdate(Context context) {
