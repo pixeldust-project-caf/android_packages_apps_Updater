@@ -47,6 +47,7 @@
     <string name="list_verifying_update">Provjera ažuriranja</string>
     <string name="list_no_updates">Nema pronađenih novih ažuriranja.</string>
     <string name="blocked_update_dialog_title">Ažuriranje je blokirano</string>
+    <string name="blocked_update_dialog_summary">Ovo ažuriranje zahtijeva ručnu čistu instalacijsku proceduru (brisanje/formatiranje podatkovne particije prije instaliranja ažuriranja). Preuzmite ažuriranje s našeg web-mjesta, ponovno pokrenite u recovery  i slijedite postupke za to.</string>
     <string name="action_download">Preuzmi</string>
     <string name="action_pause">Pauziraj</string>
     <string name="action_resume">Nastavi</string>

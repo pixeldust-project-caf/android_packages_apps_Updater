@@ -37,10 +37,10 @@
     <string name="menu_download_incremental_package">Inkrementelles Paket herunterladen</string>
     <string name="update_found_notification">Systemupdate verfügbar</string>
     <string name="snack_no_updates_found">Keine neuen Updates gefunden</string>
-    <string name="snack_updates_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfe die Internetverbindung und versuche es später erneut.</string>
-    <string name="snack_download_failed">Das Herunterladen ist fehlgeschlagen. Bitte überpüfe die Internetverbindung und versuche es später erneut.</string>
+    <string name="snack_updates_check_failed">Update-Suche fehlgeschlagen. Bitte Internetverbindung überprüfen und später erneut versuchen.</string>
+    <string name="snack_download_failed">Herunterladen fehlgeschlagen. Bitte Internetverbindung überprüfen und später erneut versuchen.</string>
     <string name="snack_download_verification_failed">Die Update-Überprüfung ist fehlgeschlagen.</string>
-    <string name="snack_download_verified">Herunterladen abgeschlossen.</string>
+    <string name="snack_download_verified">Herunterladen abgeschlossen</string>
     <string name="snack_update_not_installable">Dieses Update kann nicht auf die bestehende Installation angewendet werden.</string>
     <string name="list_download_progress_new"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> von <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> • <xliff:g id="percentage" example="56">%3$s</xliff:g></string>
     <string name="list_download_progress_eta_new"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> von <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>) • <xliff:g id="percentage" example="56">%4$s</xliff:g></string>
@@ -93,8 +93,8 @@
     <string name="maintainer_info_title">Betreuer</string>
     <string name="donate_info_title">Spende was</string>
     <string name="donate_info_summary">Gefällt dir unsere ROM, dann unterstütze uns</string>
-    <string name="website_info_title">Website</string>
-    <string name="website_info_summary">Besuche unsere Website</string>
+    <string name="website_info_title">Webseite</string>
+    <string name="website_info_summary">Besuche unsere Webseite</string>
     <string name="news_info_title">Neuigkeiten</string>
     <string name="news_info_summary">Bleib informiert über Updates und andere Neuigkeiten</string>
     <string name="forum_info_title">Forum</string>
