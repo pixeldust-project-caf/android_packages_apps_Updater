@@ -161,6 +161,10 @@ public class Utils {
         return dateStr;
     }
 
+    public static String getChangelogURL() {
+        return String.format(Constants.CHANGELOG_URL, SystemProperties.get(Constants.PROP_DEVICE));
+    }
+
     public static String getDownloadWebpageUrl() {
         return String.format(Constants.DOWNLOAD_WEBPAGE_URL, SystemProperties.get(Constants.PROP_BRAND), SystemProperties.get(Constants.PROP_DEVICE));
     }

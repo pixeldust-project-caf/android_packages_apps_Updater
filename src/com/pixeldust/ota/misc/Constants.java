@@ -32,6 +32,7 @@ public final class Constants {
     static final String PROP_AND_VERSION = "ro.pixeldust.ota.version";
     static final String PROP_VERSION_CODE = "ro.pixeldust.ota.version_code";
     static final String OTA_URL = "https://raw.githubusercontent.com/pixeldust-project-caf/android_vendor_PixeldustOTA/tartufo/%s.json";
+    static final String CHANGELOG_URL = "https://raw.githubusercontent.com/pixeldust-project-caf/android_vendor_PixeldustOTA/tartufo/changelog_%s.txt";
     static final String DOWNLOAD_WEBPAGE_URL = "https://pixeldust-project.com/download/%s/%s";
     static final String EXPORT_PATH = "PixelDust-Updates/";
 }
